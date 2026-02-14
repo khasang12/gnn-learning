@@ -4,6 +4,20 @@ Interactive GNN Example with Streamlit
 A web-based interface for experimenting with Graph Neural Networks
 """
 
+import sys
+import os
+
+# Import path setup utility
+try:
+    import utils
+    utils.setup_paths()
+except ImportError:
+    # Fallback if utils cannot be imported (should not happen if in same dir)
+    # But for safety, we try to add current dir to path if strictly needed
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    import utils
+    utils.setup_paths()
+
 import streamlit as st
 import torch
 import torch.nn as nn
