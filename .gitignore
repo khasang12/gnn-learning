@@ -43,7 +43,7 @@ ehthumbs.db
 Thumbs.db
 
 # Data files
-data/
+/data/
 *.pth
 *.png
 *.jpg
