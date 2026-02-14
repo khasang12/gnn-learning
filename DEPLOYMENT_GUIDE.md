@@ -66,7 +66,7 @@ git push -u origin main
 
 Your repository contains these essential files:
 
-1. **`gnn_streamlit.py`** - Main Streamlit application
+1. **`gnn_streamlit.py`** - Main Streamlit application with tabs for GNN basics and recommendations
 2. **`requirements.txt`** - Python dependencies
 3. **`.streamlit/config.toml`** - Streamlit configuration
 4. **`.gitignore`** - Files to exclude from Git
@@ -178,6 +178,7 @@ Upgrade to Streamlit Pro to use custom domains.
 - [ ] App deployed on Streamlit Cloud
 - [ ] App loads successfully
 - [ ] GNN training works
+- [ ] Recommendation system demo works
 - [ ] Visualizations display correctly
 
 ## Need Help?

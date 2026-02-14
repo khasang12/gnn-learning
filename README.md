@@ -6,10 +6,11 @@ This repository provides a complete, working example of a Graph Neural Network (
 
 - **Complete Implementation**: End-to-end GNN example from data loading to visualization
 - **Educational Focus**: Well-documented code with explanations for each component
-- **Interactive Web Interface**: Streamlit app for experimenting with hyperparameters
+- **Interactive Web Interface**: Streamlit app with tabs for GNN basics and recommendation systems
 - **Visualization**: t-SNE embeddings and training history plots
 - **Reproducible**: Random seeds set for consistent results
 - **Real Dataset**: Uses the Cora citation network dataset
+- **GNN for Recommendations**: New tab demonstrating LightGCN for user-item recommendations with synthetic data
 
 ## What You'll Learn
 
@@ -18,6 +19,7 @@ This repository provides a complete, working example of a Graph Neural Network (
 3. How to train and evaluate a GNN model
 4. How to visualize node embeddings and training progress
 5. How to handle graph-structured data in machine learning
+6. How to apply GNNs to recommendation systems with LightGCN and BPR loss
 
 ## Requirements
 
@@ -76,9 +78,11 @@ streamlit run gnn_streamlit.py
 ```
 
 The app will open in your browser and provides:
+- **Two Interactive Tabs**: Switch between GNN Basics (node classification) and GNN for Recommendations
 - **Interactive Controls**: Adjust hyperparameters (hidden dimension, dropout, learning rate, etc.)
 - **Real-time Training Visualization**: Watch loss and accuracy curves update as training progresses
 - **Dataset Exploration**: View dataset statistics and t-SNE embeddings
+- **Recommendation System Demo**: Train LightGCN on synthetic user-item data with Recall@K and NDCG@K metrics
 - **No Coding Required**: Perfect for experimenting with different configurations
 
 ## Project Structure
@@ -86,12 +90,13 @@ The app will open in your browser and provides:
 ```
 .
 ├── gnn_example.py          # Main GNN implementation (command line)
-├── gnn_streamlit.py       # Interactive web interface (Streamlit)
+├── gnn_streamlit.py       # Interactive web interface with tabs for GNN basics and recommendations
 ├── requirements.txt        # Python dependencies
 ├── README.md              # This file
 ├── test_gnn.py            # Basic tests
 ├── simple_test.py         # Environment verification
 ├── verify_gnn.py          # Full verification with synthetic data
+├── test_recommendation_core.py  # Test recommendation system core functions
 ├── verification_training_history.png  # Sample output
 └── venv/                  # Virtual environment (created)
 ```
@@ -253,7 +258,8 @@ Feel free to submit issues or pull requests to improve this educational example!
 
 ## Project Status
 
-✅ **Local Development**: Fully functional  
-✅ **Interactive Web App**: Streamlit interface available  
-✅ **Deployment Ready**: Configured for Streamlit Cloud  
+✅ **Local Development**: Fully functional
+✅ **Interactive Web App**: Streamlit interface available
+✅ **Recommendation System Demo**: New tab for GNN-based recommendations
+✅ **Deployment Ready**: Configured for Streamlit Cloud
 🚀 **Ready for Production**: Deploy with one click to share with others!
