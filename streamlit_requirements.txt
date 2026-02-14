@@ -1,0 +1,26 @@
+# Streamlit Cloud specific requirements
+# Optimized for deployment
+
+# Core ML/AI
+torch>=2.0.0
+torch-scatter
+torch-sparse
+torch-cluster
+torch-spline-conv
+torch-geometric>=2.4.0
+
+# Data processing
+numpy>=1.21.0
+pandas>=1.4.0
+scikit-learn>=1.0.0
+
+# Visualization
+matplotlib>=3.5.0
+altair>=4.0.0
+
+# Utilities
+tqdm>=4.64.0
+pillow>=9.0.0
+
+# Streamlit and web
+streamlit>=1.28.0
