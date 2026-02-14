@@ -58,7 +58,8 @@ data/
 *.log
 
 # Streamlit
-.streamlit/
+.streamlit/*
+!.streamlit/config.toml
 
 # Temporary files
 *.tmp
