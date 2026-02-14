@@ -350,9 +350,16 @@ def show_gnn_basics_tab():
 
         with col_progress:
             st.markdown('<h2 class="sub-header">📈 Training Progress</h2>', unsafe_allow_html=True)
-            progress_placeholder = st.empty()
-            chart_placeholder = st.empty()
-            metrics_placeholder = st.empty()
+            progress_container = st.container()
+            results_container = st.container()
+            
+            with progress_container:
+                progress_placeholder = st.empty()
+                status_placeholder = st.empty()
+            
+            with results_container:
+                chart_placeholder = st.empty()
+                metrics_placeholder = st.empty()
 
         with col_info:
             st.markdown('<h2 class="sub-header">📊 Dataset Info</h2>', unsafe_allow_html=True)
@@ -402,7 +409,7 @@ def show_gnn_basics_tab():
             # Train model
             with st.spinner("Training GNN model..."):
                 progress_bar = progress_placeholder.progress(0)
-                status_text = progress_placeholder.empty()
+                status_text = status_placeholder.empty()
                 progress_callback = ProgressWrapper(progress_bar, status_text)
                 
                 train_losses, val_losses, train_accs, val_accs = train_model(
@@ -414,6 +421,7 @@ def show_gnn_basics_tab():
                 st.session_state.train_accs = train_accs
                 st.session_state.val_accs = val_accs
                 
+                # Clear progress bar after detailed training finishes
                 progress_bar.empty()
                 status_text.empty()
 
@@ -522,10 +530,16 @@ def show_recommendation_tab():
         results_container = st.container()
         
     # Generate data
-    if gen_data_btn or st.session_state.rec_data is None:
+    if gen_data_btn:
         with st.spinner("Generating synthetic interaction data..."):
             st.session_state.rec_data = generate_synthetic_rec_data(n_users=n_users, n_items=n_items)
             st.toast(f"Generated data with {n_users} users and {n_items} items")
+            
+    # Initial data load if none exists
+    if st.session_state.rec_data is None:
+        with st.spinner("Initializing default data..."):
+            st.session_state.rec_data = generate_synthetic_rec_data(n_users=n_users, n_items=n_items)
+
             
     # Display data stats
     if st.session_state.rec_data is not None:
